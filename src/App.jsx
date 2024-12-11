@@ -12,18 +12,26 @@ function App() {
       <main><h4>Current Tasks: {currentTasks.length}</h4>
         <ul className="list-unstyled">
           {currentTasks.map((task) => {
-            return (
-              <li key={task.id} className="list-unstyled">
-                <h5><b>{task.title}</b><span className="ms-5 text-white bg-danger">{task.state}</span></h5>
-                <div>Priority: {task.priority}</div>
-                <div>Est. Time: {task.estimatedTime}</div>
-              </li>
-            )
+            if (task.state.includes("in_progress")) {
+              return (
+                <li key={task.id} className="list-unstyled">
+                  <h5><b>{task.title}</b><span className="ms-5 text-white bg-warning">{task.state}</span></h5>
+                  <div>Priority: {task.priority}</div>
+                  <div>Est. Time: {task.estimatedTime}</div>
+                </li>)
+            } else {
+              return (
+                <li key={task.id} className="list-unstyled">
+                  <h5><b>{task.title}</b><span className="ms-5 text-white bg-danger">{task.state}</span></h5>
+                  <div>Priority: {task.priority}</div>
+                  <div>Est. Time: {task.estimatedTime}</div>
+                </li>
+              )
+            }
           })}
         </ul>
-
         <hr />
-        <h4>Completed Tasks:{completedTasks.length}</h4>
+        <h4>Completed Tasks: {completedTasks.length}</h4>
         <ul className="list-unstyled">
           {completedTasks.map((task) => {
 
