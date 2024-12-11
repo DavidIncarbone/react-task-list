@@ -16,14 +16,14 @@ function App() {
             if (task.state.includes("in_progress")) {
               return (
                 <li key={task.id} className="list-unstyled">
-                  <h5><b>{task.title}</b><span className="ms-5 text-white bg-warning">{task.state}</span></h5>
+                  <h5><b>{task.title}</b><span className="ms-5 text-white bg-warning p-1">{task.state}</span></h5>
                   <div>Priority: {task.priority}</div>
                   <div>Est. Time: {task.estimatedTime}</div>
                 </li>)
             } else {
               return (
                 <li key={task.id} className="list-unstyled">
-                  <h5><b>{task.title}</b><span className="ms-5 text-white bg-danger">{task.state}</span></h5>
+                  <h5><b>{task.title}</b><span className="ms-5 text-white bg-danger p-1">{task.state}</span></h5>
                   <div>Priority: {task.priority}</div>
                   <div>Est. Time: {task.estimatedTime}</div>
                 </li>
@@ -37,7 +37,7 @@ function App() {
           {completedTasks.map((task) => {
 
             return (<li key={task.id} className="list-unstyled">
-              <h5><b>{task.title}</b><span className="ms-5 text-white bg-success">{task.state}</span></h5>
+              <h5><b>{task.title}</b><span className="ms-5 text-white bg-success p-1">{task.state}</span></h5>
               <div>Priority: {task.priority}</div>
               <div>Est. Time: {task.estimatedTime}</div>
             </li>)
