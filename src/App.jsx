@@ -80,7 +80,7 @@ function App() {
     let current = tasks.map((task, index) => {
       if (task.state.includes("backlog")) {
         return (
-          <ul>
+          <ul className="list-unstyled">
             <li key={task.id}><b>{task.title}</b><span className="ms-5 bg-danger text-white">{task.state}</span></li>
             <li key={task.id}>Priority: {task.priority}</li>
             <li key={task.id}>Est. Time: {task.estimatedTime}</li>
@@ -88,7 +88,7 @@ function App() {
         )
       } else if (task.state.includes("in_progress")) {
         return (
-          <ul>
+          <ul className="list-unstyled">
             <li key={task.id}><b>{task.title}</b><span className="ms-5 bg-warning text-white">{task.state}</span></li>
             <li key={task.id}>Priority: {task.priority}</li>
             <li key={task.id}>Est. Time: {task.estimatedTime}</li>
@@ -104,7 +104,7 @@ function App() {
     let completed = tasks.map((task, index) => {
       if (task.state.includes("completed")) {
         return (
-          <ul>
+          <ul className="list-unstyled">
             <li key={task.id}><b>{task.title}</b><span className="ms-5 text-white bg-success">{task.state}</span></li>
             <li key={task.id}>Priority: {task.priority}</li>
             <li key={task.id}>Est. Time: {task.estimatedTime}</li>
