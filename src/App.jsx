@@ -2,14 +2,15 @@ import { useLayoutEffect, useState } from 'react'
 import tasks from "./model"
 
 
+
 function App() {
 
   const currentTasks = tasks.filter((task) => task.state.includes("in_progress") || task.state.includes("backlog"));
   const completedTasks = tasks.filter((task) => task.state.includes("completed"));
 
   return (
-    <> <header className="bg-success"><h3>Task Manager</h3></header>
-      <main><h4>Current Tasks: {currentTasks.length}</h4>
+    <> <header className="bg-success p-3"><h3>Task Manager</h3></header>
+      <main className="p-3"><h4>Current Tasks: {currentTasks.length}</h4>
         <ul className="list-unstyled">
           {currentTasks.map((task) => {
             if (task.state.includes("in_progress")) {
