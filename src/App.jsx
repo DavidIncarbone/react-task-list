@@ -78,10 +78,18 @@ function App() {
 
   function currentTasks() {
     let current = tasks.map((task, index) => {
-      if (task.state.includes("in_progress") || task.state.includes("backlog")) {
+      if (task.state.includes("backlog")) {
         return (
           <ul>
             <li key={task.id}><b>{task.title}</b><span className="ms-5 bg-danger text-white">{task.state}</span></li>
+            <li key={task.id}>Priority: {task.priority}</li>
+            <li key={task.id}>Est. Time: {task.estimatedTime}</li>
+          </ul>
+        )
+      } else if (task.state.includes("in_progress")) {
+        return (
+          <ul>
+            <li key={task.id}><b>{task.title}</b><span className="ms-5 bg-warning text-white">{task.state}</span></li>
             <li key={task.id}>Priority: {task.priority}</li>
             <li key={task.id}>Est. Time: {task.estimatedTime}</li>
           </ul>
@@ -92,13 +100,31 @@ function App() {
     return current
   }
 
-
+  function completedTasks() {
+    let completed = tasks.map((task, index) => {
+      if (task.state.includes("completed")) {
+        return (
+          <ul>
+            <li key={task.id}><b>{task.title}</b><span className="ms-5 text-white bg-success">{task.state}</span></li>
+            <li key={task.id}>Priority: {task.priority}</li>
+            <li key={task.id}>Est. Time: {task.estimatedTime}</li>
+          </ul>
+        )
+      }
+    })
+    return completed
+  }
 
   return (
     <> <header className="bg-success"><h3>Task Manager</h3></header>
-      <main><h5>Current Tasks</h5>
-        <ul>{currentTasks()}
-        </ul>
+      <main><h5>Current Tasks:{ }</h5>
+        {currentTasks()}
+        <hr />
+        <h5>Completed Tasks</h5>
+        {completedTasks()}
+
+
+
       </main>
 
     </>
